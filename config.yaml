@@ -131,7 +131,7 @@ sd:
   #
   # by doing this, you can reduce the amount of time need to setup the webui to your liking
   #
-  config_json:
+  config_json: https://raw.githubusercontent.com/VeonN4/config/main/config.json
   ui_config_json:
   #
   # env stand for Environment

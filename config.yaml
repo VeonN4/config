@@ -147,4 +147,6 @@ sd:
   env:
     # - --EXAMPLE_ENV=examplevalue
   args:
-    - --xformers --lowram --theme dark
+    - --xformers
+    - --lowram
+    - --theme dark

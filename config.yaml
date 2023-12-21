@@ -21,8 +21,6 @@ common:
   models:
     - name: AOM3_orangemixs.safetensors
       url: https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3_orangemixs.safetensors
-    - name: realcartoonAnime_v9.safetensors
-      url: https://civitai.com/api/download/models/252727?type=Model&format=SafeTensor&size=pruned&fp=fp16
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://civitai.com/api/download/models/131654
@@ -38,12 +36,12 @@ common:
     # - name:
     #   url:
   controlnet:
-    - name: contolnet_sd15_openpose.pth
-      url: https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_openpose.pth
-    - name: contolnet_sd15_depth.pth
-      url: https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth
-    - name: contolnet_sd15_canny.pth
-      url: https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
+    - name: control_v11p_sd15_openpose.pth
+      url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth
+    - name: control_v11f1p_sd15_depth.pth
+      url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
+    - name: control_v11p_sd15s2_lineart_anime.pth
+      url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
 sd:
   # this is a section for stable diffusion webui
   # "ui" folder will have this structure
@@ -124,7 +122,7 @@ sd:
   custom_download:
     - dir: models/ESRGAN
       name: 4x-UltraSharp.pth
-      url: https://mega.nz/folder/qZRBmaIY#nIG8KyWFcGNTuMX_XNbJ_g/file/vRYVhaDA
+      url: https://huggingface.co/MakanSouls/colab/resolve/main/4x-UltraSharp.pth
   #
   # if you want to use your pre-configured config.json or ui-config.json
   # you can put the json download url here
@@ -149,4 +147,4 @@ sd:
   env:
     # - --EXAMPLE_ENV=examplevalue
   args:
-    - --xformers --theme dark
+    - --xformers --lowram --theme dark

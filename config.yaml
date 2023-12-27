@@ -34,6 +34,8 @@ common:
   models:
     - name: sakushimixFinished_sakushimixFinal.safetensors
       url: https://civitai.com/api/download/models/133274
+    - name: sd_xl_turbo_1.0_fp16.safetensors
+      url: https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://civitai.com/api/download/models/131654
@@ -251,6 +253,7 @@ sd:
   args:
     - --xformers
     - --theme dark
+    - --port 1111
 
 # this is a section for invokeai
 # "ui" folder will have this structure
@@ -309,6 +312,7 @@ comfyui:
   #
   env:
   args:
+    - --port 1111
 
 # this is a section for sdnext
 # "ui" folder will have this structure

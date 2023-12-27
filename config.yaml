@@ -1,13 +1,21 @@
-# very BIG NOTE that i need to put here
-# this config will download everything inside a "userdata" folder
-# "userdata" folder will have another folder called "models" and "ui"
+# ------------------IMPORTANT NOTE------------------
+# this config is where you set the models url link
+# and then will download everything inside a "userdata" folder with structure like this
+#
+# userdata
+# ├── models
+# └── ui
+#
 # "models" will have your models downloaded to it
 # "ui" will have some your webui element
-# for "ui" it will be explained in the webui section
 #
-# if you don't understand how YAML BLOCK SEQUENCE work its recommended for you read some tutorial for it
+# for "ui" it will be explained in each webui section
 #
-# default template for most part
+# -----------------------NOTE-----------------------
+# most of the config will use YAML BLOCK SEQUENCE
+# if you don't understand it, its recommended to read some tutorial for it
+#
+# default template (for most part, unless its not)
 # - name: (file name.safetensors / file name.pt / file name.ckpt etc)
 #   url: (file url)
 #
@@ -17,10 +25,15 @@
 # - name: model2.pt
 #   url: http://example.com/model2
 #
+# --------------------------------------------------
+
+# this is a common section
+# common section will be shared each webui section to be downloaded
+#
 common:
   models:
-    - name: AOM3_orangemixs.safetensors
-      url: https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3_orangemixs.safetensors
+    - name: sakushimixFinished_sakushimixFinal.safetensors
+      url: https://civitai.com/api/download/models/133274
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://civitai.com/api/download/models/131654
@@ -42,31 +55,119 @@ common:
       url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
     - name: control_v11p_sd15s2_lineart_anime.pth
       url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
+  # ------------------DIFFUSERS NOTE------------------
+  # because of how funny the diffusers models structure is (different each version, e.g sd1.5, sdxl etc)
+  # i gave up
+  #
+  # but that alone still won't stop me to support this
+  # remember to follow the example very carefully otherwise it won't work
+  #
+  #
+  # diffuser template:
+  # - url: (repo url, only huggingface.co are allowed)
+  # branch: (branch name OPTIONAL)
+  #
+  # thats it ? yes but that is just the important part
+  #
+  # you see, above config doesn't do anything unless you specify what file to download
+  # see this example
+  #
+  # example:
+  # - url: https://huggingface.co/JamesFlare/pastel-mix
+  # branch: main
+  # feature_extractor:
+  #     preprocessor_config.json:
+  # safety_checker:
+  #     config.json:
+  #     pytorch_model.bin:
+  # scheduler:
+  #     scheduler_config.json:
+  # text_encoder:
+  #     config.json:
+  #     pytorch_model.bin:
+  # tokenizer:
+  #     merges.txt:
+  #     special_tokens_map.json:
+  #     tokenizer_config.json:
+  #     vocab.json:
+  # unet:
+  #     config.json:
+  #     diffusion_pytorch_model.bin:
+  # vae:
+  #     config.json:
+  #     diffusion_pytorch_model.bin:
+  # model_index.json:
+  #
+  # this is the complete config
+  #
+  # compare the mapping above with the directory structure in the repo itself
+  # it should be the same
+  #
+  # inside feature_extractor there is a file named preprocessor_config.json, scheduler scheduler_config.json and so on
+  #
+  # you need to provide the directory structure for what file that need to be downloaded
+  # add anything you like since there is no limit (as long you follow the format above)
+  # think this as a "tree" command
+  #
+  # also you don't need to set any value to it, just make it empty or you can set it into something (whatever you want)
+  #
+  # but do remember, mind the indentation, and mind the file name
+  #
+  # and mind that diffusers only be downloaded when the webui supports it
+  # for now only invokeai, comfyui and sdnext are support diffusers format
+  #
+  # oh yea, this come with another flaw on invokeai
+  # the models name will always be the branch name
+  # this is because of how sd.next implement the diffusers detection
+  # while invokeai and comfyui seems do autodetect (both has no problem with the file path)
+  # but atleast, on invokeai, you can rename the model without doing anything about file path
+  diffusers:
+    # - url: https://huggingface.co/JamesFlare/pastel-mix
+    #   branch: main
+    #   feature_extractor:
+    #     preprocessor_config.json:
+    #   safety_checker:
+    #     config.json:
+    #     pytorch_model.bin:
+    #   scheduler:
+    #     scheduler_config.json:
+    #   text_encoder:
+    #     config.json:
+    #     pytorch_model.bin:
+    #   tokenizer:
+    #     merges.txt:
+    #     special_tokens_map.json:
+    #     tokenizer_config.json:
+    #     vocab.json:
+    #   unet:
+    #     config.json:
+    #     diffusion_pytorch_model.bin:
+    #   vae:
+    #     config.json:
+    #     diffusion_pytorch_model.bin:
+    #   model_index.json:
+
+# this is a section for stable diffusion webui
+# "ui" folder will have this structure
+#
+# ui
+# └── sd
+#     ├── configs
+#     │   └── .
+#     ├── extensions
+#     │   └── .
+#     ├── models
+#     │   └── .
+#     ├── outputs
+#     │   └── .
+#     ├── scripts
+#     │   └── .
+#     ├── config.json
+#     └── ui-config.json
+#
+# in case you want to add something to stable diffusion, e.g custom script
 sd:
-  # this is a section for stable diffusion webui
-  # "ui" folder will have this structure
-  #
-  # ui
-  # `-- sd
-  #     |-- extensions
-  #     |   `-- .
-  #     |-- models
-  #     |   `-- .
-  #     |-- outputs
-  #     |   `-- .
-  #     |-- scripts
-  #     |   `-- .
-  #     |-- config.json
-  #     `-- ui-config.json
-  #
-  # in case you want to add something to stable diffusion, e.g custom script
-  # put it here
-  #
-  # for models folder, only download here if its not covered in common section
-  # e.g sam model for segment anything extensions
-  # ---------------------------------------
-  #
-  # extensions use git to download
+  # extensions will use git to download
   #
   # git template
   # - name: (folder name/repo name)
@@ -115,22 +216,22 @@ sd:
   # do remember, dir will always "ui" folder subdirectory
   # so, with the example above it will download to ui/sd/models/sam/sam_model.pth
   #
-  # if you happen to put absolute / full path e.g /root/somedir, it will download to a warning folder in "ui" folder
+  # if you happen to put a full path e.g /root/somedir, it will download to a warning folder in "ui" folder
   #
-  # this is useful when you want to download extra models but its not covered in common section
+  # this is useful when you want to download extra models but its not covered in common section e.g upscale model
   #
   custom_download:
-    - dir: models/ESRGAN
-      name: 4x-UltraSharp.pth
-      url: https://huggingface.co/MakanSouls/colab/resolve/main/4x-UltraSharp.pth
+    # - dir:
+    #   name:
+    #   url:
   #
   # if you want to use your pre-configured config.json or ui-config.json
   # you can put the json download url here
   #
   # by doing this, you can reduce the amount of time need to setup the webui to your liking
   #
-  config_json: https://raw.githubusercontent.com/VeonN4/config/main/config.json
-  ui_config_json:
+  config_json: # https://example.com/config.json
+  ui_config_json: # https://example.con/ui-config.json
   #
   # env stand for Environment
   # args stand for Arguments
@@ -146,7 +247,108 @@ sd:
   #
   env:
     # - --EXAMPLE_ENV=examplevalue
+    # - --EXAMPLE_ENV2=examplevalue2
   args:
     - --xformers
-    - --lowram
     - --theme dark
+
+# this is a section for invokeai
+# "ui" folder will have this structure
+#
+# ui
+# └── invokeai
+#     ├── <invokeai root files and folders>
+#     └── invokeai.yml
+#
+# this "ui" is also the default for --root option
+# https://invoke-ai.github.io/InvokeAI/features/CONFIGURATION
+invokeai:
+  #
+  # this controlnet is for diffusers controlnet, so you need to use diffusers format in common section
+  # controlnet from common section still be downloaded though (this just an addition)
+  #
+  controlnet:
+  #
+  # read sd section about custom_download
+  #
+  custom_download:
+  #
+  # env and args same as sd section but for invokeai
+  # https://invoke-ai.github.io/InvokeAI/features/CONFIGURATION
+  #
+  env:
+  args:
+
+# this is a section for comfyui
+# "ui" folder will have this structure
+#
+# ui
+# └── comfyui
+#     ├── custom_nodes
+#     │   └── .
+#     ├── models
+#     │   └── .
+#     ├── input
+#     │   └── .
+#     └── output
+#         └── .
+#
+# in case you want to add something to comfyui, e.g custom_nodes
+comfyui:
+  #
+  # custom_nodes behave the same as extensions in sd section
+  # it also has the same options (branch and commit)
+  #
+  custom_nodes:
+    - name: ComfyUI-Manager
+      url: https://github.com/ltdrdata/ComfyUI-Manager.git
+  custom_download:
+  #
+  # env and args same as sd section but for comfyui
+  # https://github.com/comfyanonymous/ComfyUI/blob/master/comfy/cli_args.py
+  #
+  env:
+  args:
+
+# this is a section for sdnext
+# "ui" folder will have this structure
+#
+# ui
+# └── sdnext
+#     ├── configs
+#     │   └── .
+#     ├── extensions
+#     │   └── .
+#     ├── models
+#     │   └── .
+#     ├── outputs
+#     │   └── .
+#     ├── scripts
+#     │   └── .
+#     ├── config.json
+#     └── ui-config.json
+#
+# in case you want to add something to sdnext, e.g custom script
+#
+# for most part, sdnext is same as stable diffusion
+# so you can add stable diffusion extension to this
+sdnext:
+  #
+  # read sd section about diffusers
+  #
+  extensions:
+  #
+  # read sd section about custom_download
+  #
+  custom_download:
+  #
+  # read sd section about config_json and ui_config_json
+  #
+  config_json:
+  ui_config_json:
+  #
+  # env and args same as sd section but for sdnext
+  # https://github.com/vladmandic/automatic?tab=readme-ov-file#run
+  #
+  env:
+  args:

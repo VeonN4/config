@@ -223,16 +223,16 @@ sd:
   # this is useful when you want to download extra models but its not covered in common section e.g upscale model
   #
   custom_download:
-    # - dir:
-    #   name:
-    #   url:
+    - dir: models/ESRGAN
+      name: 4x-UltraSharp.pth
+      url: https://huggingface.co/MakanSouls/colab/resolve/main/4x-UltraSharp.pth
   #
   # if you want to use your pre-configured config.json or ui-config.json
   # you can put the json download url here
   #
   # by doing this, you can reduce the amount of time need to setup the webui to your liking
   #
-  config_json: # https://example.com/config.json
+  config_json: https://raw.githubusercontent.com/VeonN4/config/main/config.json
   ui_config_json: # https://example.con/ui-config.json
   #
   # env stand for Environment

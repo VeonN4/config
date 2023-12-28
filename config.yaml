@@ -34,11 +34,11 @@ common:
   models:
     - name: sakushimixFinished_sakushimixFinal.safetensors
       url: https://civitai.com/api/download/models/133274
-    - name: sd_xl_turbo_1.0_fp16.safetensors
-      url: https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors
+    - name: Realistic_Vision_V6.0_NV_B1_fp16.safetensors
+      url: https://huggingface.co/SG161222/Realistic_Vision_V6.0_B1_noVAE/resolve/main/Realistic_Vision_V6.0_NV_B1_fp16.safetensors
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
-      url: https://civitai.com/api/download/models/131654
+      url: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
     - name: kl-f8-anime2.safetensors
       url: https://civitai.com/api/download/models/131654
   lora:

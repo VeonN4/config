@@ -44,6 +44,8 @@ common:
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
+    - name: chey.safetensor
+      url: https://huggingface.co/MakanSouls/Indonesian-LoRA/resolve/main/Laurecia-Tiara/chey.safetensors?download=true
   embeddings:
     # - name:
     #   url:

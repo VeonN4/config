@@ -44,7 +44,7 @@ common:
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
-    - name: chey.safetensor
+    - name: chey.safetensors
       url: https://huggingface.co/MakanSouls/Indonesian-LoRA/resolve/main/Laurecia-Tiara/chey.safetensors?download=true
   embeddings:
     # - name:
@@ -209,6 +209,8 @@ sd:
       url: https://github.com/mcmonkeyprojects/sd-dynamic-thresholding.git
     - name: ultimate-upscale-for-automatic1111
       url: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
+    - name: sd-fast-pnginfo
+      url: https://github.com/gutris1/sd-fast-pnginfo
   #
   # custom_download same as name url format but with dir
   #

@@ -217,12 +217,12 @@ sd:
       url: https://github.com/BlafKing/sd-civitai-browser-plus.git
     - name: sd-dynamic-thresholding
       url: https://github.com/mcmonkeyprojects/sd-dynamic-thresholding.git
-    - name: ultimate-upscale-for-automatic1111
-      url: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
     - name: sd-fast-pnginfo
       url: https://github.com/gutris1/sd-fast-pnginfo
     - name: sd-webui-regional-prompter
       url: https://github.com/hako-mikan/sd-webui-regional-prompter.git
+    - name: ultimate-upscale-for-automatic1111
+      url: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
   #
   # custom_download same as name url format but with dir
   #

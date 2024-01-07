@@ -45,10 +45,14 @@ common:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
     - name: chey.safetensors
-      url: https://huggingface.co/MakanSouls/Indonesian-LoRA/resolve/main/Laurecia-Tiara/chey.safetensors?download=true
+      url: https://huggingface.co/MakanSouls/Indonesian-LoRA/resolve/main/Laurecia-Tiara/chey.safetensors
+    - name: CHAR-Frieren.safetensors
+      url: https://civitai.com/api/download/models/213725?type=Model&format=SafeTensor
+    - name: CHAR-Fern.safetensors
+      url: https://civitai.com/api/download/models/200869?type=Model&format=SafeTensor
   embeddings:
-    # - name:
-    #   url:
+    - name: EasyNegative.safetensors
+      url: https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors
   hypernetwork:
     # - name:
     #   url:
@@ -59,6 +63,12 @@ common:
       url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
     - name: control_v11p_sd15s2_lineart_anime.pth
       url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
+    - name: control_v11f1e_sd15_tile.pth
+      url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1e_sd15_tile.pth
+    - name: ip-adapter-plus_sd15.safetensors
+      url: https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors
+    - name: ip-adapter-full-face_sd15.safetensors
+      url: https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-full-face_sd15.safetensors
   # ------------------DIFFUSERS NOTE------------------
   # because of how funny the diffusers models structure is (different each version, e.g sd1.5, sdxl etc)
   # i gave up
@@ -211,6 +221,8 @@ sd:
       url: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
     - name: sd-fast-pnginfo
       url: https://github.com/gutris1/sd-fast-pnginfo
+    - name: sd-webui-regional-prompter
+      url: https://github.com/hako-mikan/sd-webui-regional-prompter.git
   #
   # custom_download same as name url format but with dir
   #
@@ -258,6 +270,7 @@ sd:
     - --xformers
     - --theme dark
     - --port 1111
+    - --esrgan-models-path /content/userdata/ui/sd/models/ESRGAN
 
 # this is a section for invokeai
 # "ui" folder will have this structure

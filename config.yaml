@@ -34,8 +34,8 @@ common:
   models:
     - name: sakushimixFinished_sakushimixFinal.safetensors
       url: https://civitai.com/api/download/models/133274
-    - name: Realistic_Vision_V6.0_NV_B1_fp16.safetensors
-      url: https://huggingface.co/SG161222/Realistic_Vision_V6.0_B1_noVAE/resolve/main/Realistic_Vision_V6.0_NV_B1_fp16.safetensors
+    - name: CyberRealistic_V4.1_FP16.safetensors
+      url: https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V4.1_FP16.safetensors
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
@@ -44,8 +44,8 @@ common:
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
-    - name: chey.safetensors
-      url: https://huggingface.co/MakanSouls/Indonesian-LoRA/resolve/main/Laurecia-Tiara/chey.safetensors
+    - name: SDXLrender_v2.0.safetensors
+      url: https://civitai.com/api/download/models/236130?type=Model&format=SafeTensor
     - name: CHAR-Frieren.safetensors
       url: https://civitai.com/api/download/models/213725?type=Model&format=SafeTensor
     - name: CHAR-Fern.safetensors

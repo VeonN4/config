@@ -44,8 +44,6 @@ common:
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
-    - name: SDXLrender_v2.0.safetensors
-      url: https://civitai.com/api/download/models/236130?type=Model&format=SafeTensor
     - name: CHAR-Frieren.safetensors
       url: https://civitai.com/api/download/models/213725?type=Model&format=SafeTensor
     - name: CHAR-Fern.safetensors

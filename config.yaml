@@ -270,6 +270,8 @@ sd:
     - --xformers
     - --theme dark
     - --port 1111
+    - --update-all-extensions
+    - --do-not-download-clip
     - --esrgan-models-path /content/userdata/ui/sd/models/ESRGAN
 
 # this is a section for invokeai

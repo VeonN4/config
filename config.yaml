@@ -26,6 +26,16 @@
 #   url: http://example.com/model2
 #
 # --------------------------------------------------
+# this is the auth section for your bearer key
+#
+# auth template:
+# site.com: (key string)
+#
+# example:
+# github.com: blablakey
+# civitai.com: blablakey
+#
+auth:
 
 # this is a common section
 # common section will be shared each webui section to be downloaded

@@ -1,3 +1,4 @@
+
 # ------------------IMPORTANT NOTE------------------
 # this config is where you set the models url link
 # and then will download everything inside a "userdata" folder with structure like this
@@ -26,6 +27,7 @@
 #   url: http://example.com/model2
 #
 # --------------------------------------------------
+
 # this is the auth section for your bearer key
 #
 # auth template:
@@ -36,6 +38,8 @@
 # civitai.com: blablakey
 #
 auth:
+  huggingface.co: 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
+  civitai.com: 0a09e489b1bbac67860b73254e0143cc
 
 # this is a common section
 # common section will be shared each webui section to be downloaded
@@ -44,8 +48,6 @@ common:
   models:
     - name: sakushimixFinished_sakushimixFinal.safetensors
       url: https://civitai.com/api/download/models/133274
-    - name: CyberRealistic_V4.1_FP16.safetensors
-      url: https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V4.1_FP16.safetensors
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
@@ -54,10 +56,6 @@ common:
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
-    - name: CHAR-Frieren.safetensors
-      url: https://civitai.com/api/download/models/213725?type=Model&format=SafeTensor
-    - name: CHAR-Fern.safetensors
-      url: https://civitai.com/api/download/models/200869?type=Model&format=SafeTensor
   embeddings:
     - name: EasyNegative.safetensors
       url: https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors
@@ -211,8 +209,6 @@ sd:
   extensions:
     - name: adetailer
       url: https://github.com/Bing-su/adetailer
-    - name: batchlinks-webui
-      url: https://github.com/etherealxx/batchlinks-webui
     - name: multidiffusion-upscaler-for-automatic1111
       url: https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111
     - name: a1111-sd-webui-tagcomplete
@@ -247,9 +243,9 @@ sd:
   # this is useful when you want to download extra models but its not covered in common section e.g upscale model
   #
   custom_download:
-    - dir: models/ESRGAN
-      name: 4x-UltraSharp.pth
-      url: https://huggingface.co/MakanSouls/colab/resolve/main/4x-UltraSharp.pth
+    # - dir:
+    #   name:
+    #   url:
   #
   # if you want to use your pre-configured config.json or ui-config.json
   # you can put the json download url here
@@ -278,7 +274,6 @@ sd:
     - --xformers
     - --theme dark
     - --port 1111
-    - --update-all-extensions
     - --do-not-download-clip
     - --esrgan-models-path /content/userdata/ui/sd/models/ESRGAN
 
@@ -308,6 +303,7 @@ invokeai:
   #
   env:
   args:
+    - --port 1111
 
 # this is a section for comfyui
 # "ui" folder will have this structure
@@ -383,3 +379,4 @@ sdnext:
   #
   env:
   args:
+    - --port 1111

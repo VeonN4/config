@@ -39,20 +39,22 @@
 #
 auth:
   huggingface.co: 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
-  civitai.com: 0a09e489b1bbac67860b73254e0143cc
+  civitai.com: aa6895e9324979dc2167e700eab60aa0
 
 # this is a common section
 # common section will be shared each webui section to be downloaded
 #
 common:
   models:
-    - name: sakushimixFinished_sakushimixFinal.safetensors
-      url: https://civitai.com/api/download/models/133274
+    - name: animagine-xl-3.0.safetensors
+      url: https://huggingface.co/cagliostrolab/animagine-xl-3.0/resolve/main/animagine-xl-3.0.safetensors?download=true
   vae:
     - name: vae-ft-mse-840000-ema-pruned.safetensors
       url: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
     - name: kl-f8-anime2.safetensors
       url: https://civitai.com/api/download/models/131654
+    - name: sdxl_vae.safetensors
+      url: https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors
   lora:
     - name: add_detail.safetensors
       url: https://civitai.com/api/download/models/62833
@@ -274,8 +276,6 @@ sd:
     - --xformers
     - --theme dark
     - --port 1111
-    - --do-not-download-clip
-    - --esrgan-models-path /content/userdata/ui/sd/models/ESRGAN
 
 # this is a section for invokeai
 # "ui" folder will have this structure
